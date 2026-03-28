@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "LED";
+  src: url(Digital7Mono-Yz9J4.ttf);
+}
+
 #wrapper {
   display: flex;
   justify-content: center;
@@ -32,7 +37,7 @@
   background-color: honeydew;
   border: 1px solid green;
   border-radius: 4px;
-  padding: 4px 10px 4px;
+  padding: 4px 10px;
   font-size: 20px;
 }
 
@@ -42,7 +47,8 @@
   text-align: right;
   border: 1px solid green;
   border-radius: 4px;
-  font-size: 24px;
+  font-size: 32px;
+  font-family: "LED";
 }
 
 #calc #add, #calc #subtract, #calc #multiply, #calc #divide {
