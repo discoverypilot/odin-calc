@@ -19,6 +19,7 @@
 
 #numbers button {
   flex: 33%;
+  color: salmon;
 }
 
 #operations {
@@ -27,15 +28,15 @@
 }
 
 #calc {
-  border: 1px solid green;
+  background-color: purple;
+  border: 1px solid purple;
   border-radius: 4px;
-  background-color: green;
 }
 
 #calc button {
   cursor: pointer;
-  background-color: honeydew;
-  border: 1px solid green;
+  background-color: ivory;
+  border: 1px solid purple;
   border-radius: 4px;
   padding: 4px 10px;
   font-size: 20px;
@@ -43,19 +44,23 @@
 }
 
 #display {
-  background-color: darkseagreen;
+  background-color: papayawhip;
+  color: salmon;
   padding: 4px;
   text-align: right;
-  border: 1px solid green;
+  border: 1px solid purple;
   border-radius: 4px;
   font-size: 32px;
   font-family: "LED";
 }
 
 #calc #add, #calc #subtract, #calc #multiply, #calc #divide {
-  background-color: lightgreen;
+  background-color: peachpuff;
+  color: purple;
+
 }
 
 #calc #equals {
-  background-color: cadetblue;
+  background-color: lightsalmon;
+  color: purple;
 }
