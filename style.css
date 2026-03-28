@@ -1,0 +1,54 @@
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#buttons {
+  display: flex;
+}
+
+#numbers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#numbers button {
+  flex: 33%;
+}
+
+#operations {
+  display: flex;
+  flex-direction: column;
+}
+
+#calc {
+  border: 1px solid green;
+  border-radius: 4px;
+  background-color: green;
+}
+
+#calc button {
+  cursor: pointer;
+  background-color: honeydew;
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 4px 10px 4px;
+  font-size: 20px;
+}
+
+#display {
+  background-color: darkseagreen;
+  padding: 4px;
+  text-align: right;
+  border: 1px solid green;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+#calc #add, #calc #subtract, #calc #multiply, #calc #divide {
+  background-color: lightgreen;
+}
+
+#calc #equals {
+  background-color: cadetblue;
+}
