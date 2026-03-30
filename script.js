@@ -5,17 +5,18 @@ let dotEnabled = false;
 let operatorEnabled = false;
 let n1Typed = false;
 let n2Typed = false;
+let result = false;
 
 calc.addEventListener('click', (Event) => {
   target = Event.target.id;
   if (target === '1' || target === '2' || target === '3'
    || target === '4' || target === '5' || target === '6'
    || target === '7' || target === '8' || target === '9'
-   || target === '0') {
-    updateCalc(target);
-    
+   || target === '0') {    
     dotEnabled = true;
-
+    if (result === true && operatorEnabled === true) {
+      clearCalc();
+    }
     if (n1Typed === false) {
       n1Typed = true;
       operatorEnabled = true;
@@ -23,6 +24,7 @@ calc.addEventListener('click', (Event) => {
     else if (n1Typed === true && operatorEnabled === false) {
       n2Typed = true;
     }
+    updateCalc(target);
   } 
   else if (calcString.includes('.') === false && target === 'dot' && dotEnabled === true) {
     updateCalc(target);
@@ -43,6 +45,7 @@ calc.addEventListener('click', (Event) => {
   }
   else if (target === 'equals') {
     operate(calcString);
+    operatorEnabled = true;
   }
 });
 
@@ -66,23 +69,27 @@ function divide(n1, n2) {
 function operate(str) {
   if (str.includes('+')) {
     let nums = str.split('+');
-    calcString = add(parseFloat(nums[0], 100), parseFloat(nums[1]));
+    calcString = add(parseFloat(nums[0], 100), parseFloat(nums[1], 100));
     display.textContent = calcString;
+    result = true;
   }
   else if (str.includes('-')) {
     let nums = str.split('-');
-    calcString = subtract(parseFloat(nums[0]), parseFloat(nums[1]));
+    calcString = subtract(parseFloat(nums[0], 100), parseFloat(nums[1], 100));
     display.textContent = calcString;
+    result = true;
   }
   else if (str.includes('*')) {
     let nums = str.split('*');
-    calcString = multiply(parseFloat(nums[0]), parseFloat(nums[1]));
+    calcString = multiply(parseFloat(nums[0], 100), parseFloat(nums[1], 100));
     display.textContent = calcString;
+    result = true;
   }
   else if (str.includes('/')) {
-    let nums = calcString.split('/');
-    calcString = divide(parseFloat(nums[0]), parseFloat(nums[1]));
+    let nums = str.split('/');
+    calcString = divide(parseFloat(nums[0], 100), parseFloat(nums[1], 100));
     display.textContent = calcString;
+    result = true;
   }   
 }
 
@@ -116,5 +123,6 @@ function clearCalc() {
   operatorEnabled = false;
   n1Typed = false;
   n2Typed = false;
+  result = false;
   display.textContent = calcString;
 }
