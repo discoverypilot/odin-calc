@@ -3,6 +3,8 @@ const display = document.querySelector("#display");
 let calcString = "";
 let dotEnabled = false;
 let operatorEnabled = false;
+let n1Typed = false;
+let n2Typed = false;
 
 calc.addEventListener('click', (Event) => {
   target = Event.target.id;
@@ -11,23 +13,30 @@ calc.addEventListener('click', (Event) => {
    || target === '7' || target === '8' || target === '9'
    || target === '0') {
     updateCalc(target);
+    
     dotEnabled = true;
-    operatorEnabled = true;
+
+    if (n1Typed === false) {
+      n1Typed = true;
+      operatorEnabled = true;
+    }
+    else if (n1Typed === true && operatorEnabled === false) {
+      n2Typed = true;
+    }
   } 
-  else if (target === 'dot' && dotEnabled === true) {
+  else if (calcString.includes('.') === false && target === 'dot' && dotEnabled === true) {
     updateCalc(target);
     dotEnabled = false;
   }
-  else if (operatorEnabled === true && target === 'add'
+  else if (n1Typed && operatorEnabled === true && target === 'add'
         || target === 'subtract' || target === 'multiply' || target === 'divide') {  
     updateCalc(target);
     operatorEnabled = false;
   }
-  else if (operatorEnabled === false && target === 'add'
+  else if (n2Typed === true && operatorEnabled === false && target === 'add'
         || target === 'subtract' || target === 'multiply' || target === 'divide') {  
     operate(calcString);
     updateCalc(target);
-    operatorEnabled = true;
   }
   else if (target === 'clear') {
     clearCalc();
@@ -103,5 +112,9 @@ function updateCalc(input) {
 
 function clearCalc() {
   calcString = "";
+  dotEnabled = false;
+  operatorEnabled = false;
+  n1Typed = false;
+  n2Typed = false;
   display.textContent = calcString;
 }
