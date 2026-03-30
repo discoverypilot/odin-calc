@@ -29,11 +29,12 @@ function operate(operator, n1, n2) {
   }
 }
 
-calc = document.querySelector("id", "calc");
-display = document.querySelector("id", "display");
+const calc = document.querySelector("#calc");
+const display = document.querySelector("#display");
 
 calc.addEventListener('click', (Event) => {
   target = Event.target.id;
+  console.log(target);
   if (target === '1' || target === '2' || target === '3'
    || target === '4' || target === '5' || target === '6'
    || target === '7' || target === '8' || target === '9'
@@ -47,7 +48,23 @@ calc.addEventListener('click', (Event) => {
   else if (target === 'clear') {
     clearCalc();
   }
-  else if (target === 'clear') {
-    operate(n1, n2, );
+  else if (target === 'equals') {
+    operate(n1, n2, operator);
   }
-})
+});
+
+function updateNumbers(number) {
+
+}
+
+function updateOperator(operator) {
+
+}
+
+function clearCalc() {
+
+}
+
+function operate(n1, n2, operator) {
+
+}
