@@ -52,6 +52,7 @@
   border-radius: 4px;
   font-size: 32px;
   font-family: "LED";
+  height: 32px;
 }
 
 #calc #add, #calc #subtract, #calc #multiply, #calc #divide {
